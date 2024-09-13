@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<form onsubmit="calculateGrade(); return false">
+        <label for="mark1"><span>ENGLISH</span>
+            <br>
+            <input type="number" id="mark1" placeholder="Total marks" required>
+        </label>
+		<label for="mark2"><span>URDU</span>
+            <br><input type="number" id="mark2" placeholder="Total marks" required>
+        </label>
+		<label for="mark3"><span>MATHAMATICS</span>
+            <br>
+            <input type="number" id="mark3" placeholder="Total marks" required>
+        </label>
+		<label for="mark4"><span>COMPUTER</span>
+            <br><input type="number" id="mark4" placeholder="Total marks" required>
+        </label>
+		<label for="mark5"><span>PHYSICS</span>
+            <br><input type="number" id="mark5" placeholder="Total marks" required>
+        </label>
+		<label for="mark6"><span>ISLAMIAT</span>
+            <br><input type="number" id="mark6" placeholder="Total marks" required>
+        </label>
+		
+		<button>Submit</button>
+	</form>
+
+	<script>
+		function calculateGrade() {
+			var mark1 = document.getElementById('mark1').value;
+			var mark2 = document.getElementById('mark2').value;
+			var mark3 = document.getElementById('mark3').value;
+			var mark4 = document.getElementById('mark4').value;
+			var mark5 = document.getElementById('mark5').value;
+			var mark6 = document.getElementById('mark6').value;
+
+			var totalMarks = 600;
+			var obtainedMarks = parseInt(mark1) + parseInt(mark2) + parseInt(mark3) + parseInt(mark4) + parseInt(mark5) + parseInt(mark6);
+			var percentage = (obtainedMarks / totalMarks) * 100;
+
+			var grade;
+			if (percentage >= 90) {
+				grade = 'A+';
+			} else if (percentage >= 80) {
+				grade = 'A';
+			} else if (percentage >= 70) {
+				grade = 'B';
+			} else if (percentage >= 60) {
+				grade = 'C';
+			} 
+            else if (percentage >=50){
+                grade = 'D';
+            } else {
+				grade = 'F';
+			}
+
+			alert('Percentage: ' + percentage.toFixed(2) + '%, Grade: ' + grade);
+		}
+	</script>
+</body>
+</html>
